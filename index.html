@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>나의모멘텀-main이 2차 수정</title>
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+        <script src="./js/script.js" defer></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- 배경[s] -->
+            <div class="mmt_background">
+                <!-- 아래 이미지 -->
+                <div class="img_bottom"></div>
+                <!-- 위 이미지 -->
+                <div class="img_top"></div>
+            </div>
+            <div class="mmt_background_overay"></div>
+            <!-- 배경[e] -->
+
+            <!-- main_view[s] -->
+            <div class="main_view">
+                <!-- 날씨[s] -->
+                <div class="mmt_weather" id="mmtWeather"></div>
+                <!-- 날씨[e] -->
+
+                <div class="center_group">
+                    <!-- 네이밍 키워드[s] -->
+                    <div class="mmt_namming" id="mmtNamming">
+                        <div class="draw_namming"></div>
+                    </div>
+                    <!-- 네이밍 키워드[e] -->
+                    <!-- 인사문구[s] -->
+                    <div class="mmt_greet" id="mmtGreet">
+                        <div class="draw_greet"></div>
+                    </div>
+                    <!-- 인사문구[e] -->
+                    <!-- 명언[s] -->
+                    <div class="mmt_say" id="mmtSay">
+                        <div class="draw_say"></div>
+                    </div>
+                    <!-- 명언[e] -->
+                </div>
+
+                <div class="right_group">
+                    <!-- 날짜[s] -->
+                    <div class="draw_date"></div>
+                    <!-- 날짜[e] -->
+                    <!-- 시계[s] -->
+                    <div class="draw_time"></div>
+                    <!-- 시계[e] -->
+                </div>
+
+                <div class="left_group">
+                    <!-- 목표[s] -->
+                    <div class="mmt_goal" id="mmtGoal">
+                        <div class="goal_write">
+                            <label for="iptGoal" class="ipt_wrap">
+                                <input type="text" class="ipt_goal" id="iptGoal" name="IPT_GOAL" placeholder="오늘의 목표" autocomplete="off" />
+                                <span class="guide"> <i>오늘의 목표</i><i>를 작성해주세요.</i> </span>
+                            </label>
+                            <button class="btn_save_goal" id="btnSaveGoal"><i class="fa-solid fa-plus"></i><span class="txt">저장</span></button>
+                        </div>
+                        <div class="goal_recent">
+                            <ul id="goalList">
+                                <!-- <li class="isDone">
+                                    <span class="chk_wrap">
+                                        <input type="checkbox" id="isDoneChk1" />
+                                        <label for="isDoneChk1"><span class="txt">선택</span></label>
+                                    </span>
+                                    <span class="goal_title">여기에 최근 목표 내용이 출력됩니다. 여기에 최근 목표 내용이 출력됩니다. </span>
+                                    <button type="button" class="del_btn" id="deleteGoal" title="삭제"><i class="fa-regular fa-trash-can"></i></button>
+                                </li>
+                                 -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 목표[e] -->
+                </div>
+            </div>
+            <!-- main_view[e] -->
+
+            <div class="backdrop_screen">
+                <div class="name_write">
+                    <p class="emoji">😉</p>
+                    <h1 class="title">
+                        <span>Have a wonderful day</span><br />
+                        <span>이름을 입력해 주세요.</span>
+                    </h1>
+                    <div class="input_box">
+                        <input type="text" id="yourName" autocomplete="off" />
+                    </div>
+                    <div class="bottom_button">
+                        <button type="button" id="nameSubmit">완료</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

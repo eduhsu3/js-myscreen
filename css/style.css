@@ -1,0 +1,179 @@
+
+
+@import url("font.css");
+
+* { margin: 0; padding: 0; box-sizing: border-box; } 
+html, body { line-height: 1.6; background-color: #fff; color: #000; } 
+h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; line-height: 1.2; } 
+i { font-style: normal; } 
+a { text-decoration: none; color: inherit; } 
+ul, ol { list-style: none; } 
+table { border-collapse: collapse; border-spacing: 0; } 
+img { max-width: 100%; height: auto; } 
+button { cursor: pointer; font-family: inherit; font-weight: 600; } 
+input, textarea { font-family: inherit; font-size: inherit; font-weight: 600; border: 1px solid #ccc; padding: 0.5em; } 
+html { width: 100%; height: 100%; } 
+body { width: 100%; height: 100%; background-color: #000; font-family: "Noto Sans KR", sans-serif; } 
+
+
+
+.wrapper { position: relative; width: 100%; height: 100%; overflow: hidden; } 
+
+/* ------------------------------------------------- */
+/* move_up 기본적으로 숨긴 상태 */
+.hidden_move_down { opacity: 0; transform: translateY(50px); transition: opacity 1s ease-out, transform 1s ease-out; } 
+
+/* move_up 클래스가 추가되었을 때 표시 */
+.visible_move_up { opacity: 1; transform: translateY(0); } 
+
+
+
+
+/* 배경 ===================================================== */
+
+/* 배경 이미지 컨테이너 스타일 */
+.mmt_background { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; overflow: hidden; } 
+
+/* 배경 아래 이미지 */
+.mmt_background .img_bottom { position: absolute; z-index: 1; width: 100%; height: 100%; background-size: cover; background-position: center; }
+
+/* 배경 위 이미지 */
+.mmt_background .img_top { position: absolute; z-index: 2; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; /* transition: opacity 5s ease-in-out; */}
+
+/* ------------------------------------------------- */
+.mmt_background_overay { position: absolute; z-index: 2; top: 0; left: 0; right: 0; bottom: 0; background-size: 100% 100%; background-repeat: no-repeat; background-image: url('../images/overlay3.png'); transition: opacity .3s ease-out; } 
+.mmt_background_overay:before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: 100% 100%; background-color: rgba(0, 0, 0, 0.45); } 
+
+
+
+
+
+/* main_view ===================================================== */
+.main_view { position: absolute; z-index: 3; top:0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; width: 100%; } 
+
+
+
+/* -------------------------------- */
+/* 날씨 */
+/* 날씨는 레이아웃 딜레이가 생겨서 따로 분리해서 사용함 */
+.mmt_weather { position: absolute; top: 35px; right: -200px; display: flex; justify-content: flex-end; align-items: center; transition: all 0.7s ease-in-out } 
+.mmt_weather.on { right: 30px; } 
+.mmt_weather img { height: 55px; } 
+.mmt_weather .temp { margin-top: 5px; font-size: 22px; color: #fff; } 
+.mmt_weather .region { margin-top: 5px; font-size: 18px; margin-left: 10px; color: #fff; } 
+
+
+/* -------------------------------- */
+.right_group { position: absolute; top: 100px; right: -250px; transition: all 1.2s ease-in-out } 
+.right_group.on { right: 30px; } 
+
+/* 시계 */
+.draw_time { text-align: right; font-size: 38px; font-family: "Arial", sans-serif; font-weight: 200; line-height: 1; cursor:default; margin:10px 0; color: rgba(255, 255, 255, 0.5); } 
+
+/* 날짜 */
+.draw_date { text-align: right; font-size: 28px; font-family: "Pretendard", sans-serif; font-weight: 200; line-height: 1; cursor:default; margin:10px 0; color: rgba(255, 255, 255, 0.5); } 
+
+
+
+/* -------------------------------- */
+.center_group { padding-bottom:120px } 
+
+/* 네이밍 키워드 */
+.mmt_namming { text-align: center; font-size: 80px; font-family: "Ubuntu", sans-serif; font-weight: 400; line-height: 1; margin-bottom: 40px; cursor:default; color: #fff; color: rgba(255, 255, 255, 0.75); opacity: 0.5; } 
+.mmt_namming .draw_namming { opacity: 0; transform: scale(0.9); transition: opacity 1s ease, transform 1s ease; } 
+
+
+/* 인사문구 */
+
+.mmt_greet { text-align: center; } 
+.mmt_greet .draw_greet { display: inline-block; line-height: 1; height: 1em; font-size: 34px; font-family: "Pretendard", sans-serif; font-weight: 200; line-height: 1; cursor:default; color: #fff; color: rgba(255, 255, 255, 0.75); } 
+.mmt_greet .draw_greet:after { content: ''; display: inline-block; line-height: 1; width: 8px; height: 110%; margin-bottom: -5px; background-color: transparent; animation: cursor 0.4s ease infinite; } 
+.mmt_greet .draw_greet.cursor_show:after { background-color:#fff } 
+.mmt_greet .draw_greet.cursor_hide:after { background-color:transparent } 
+
+
+/* 명언 */
+.mmt_say { /* position: absolute; top: calc(40% + 50px ); left: 0; width: 100%; */ text-align: center; margin-top: 20px; } 
+.mmt_say .draw_say { display: inline-block; line-height: 1; height: 1em; font-size: 18px; font-family: "Pretendard"; font-weight: 500; line-height: 1; cursor:default; color: #fff; color: rgba(255, 255, 255, 0.45); } 
+.mmt_say .draw_say:after { content: ''; display: inline-block; line-height: 1; width: 4px; height: 110%; margin-bottom: -5px; background-color: transparent; animation: cursor 0.4s ease infinite; } 
+.mmt_say .draw_say.cursor_show:after { background-color:#fff } 
+.mmt_say .draw_say.cursor_hide:after { background-color:transparent } 
+
+@keyframes cursor { 50% { background-color: transparent; } 
+ }
+
+
+
+
+/* -------------------------------- */
+.left_group { position: absolute; top: 55px; /* left: 30px; */ left: -350px; transition: all 0.8s ease-in-out; } 
+.left_group.on { left: 30px; } 
+/* 목표 */
+.mmt_goal { /* position: absolute; top: 55px; left: 30px; */ width: 350px; } 
+/* 목표 입력 */
+.mmt_goal .goal_write { display: flex; } 
+.mmt_goal .goal_write .ipt_wrap { position: relative; display: inline-block; flex: 1 0 0; margin-right: 10px; cursor: pointer; } 
+.mmt_goal .goal_write .ipt_wrap .ipt_goal { width: 100%; height: 42px; padding: 0 15px; border: 1px solid rgba(255, 255, 255, 0.5); background-color: rgba(255, 255, 255, 0.2); border-radius: 8px; color: #fff; letter-spacing: -0.05em; } 
+.mmt_goal .goal_write .ipt_wrap .ipt_goal::placeholder { font-size: 0; text-indent: -9999px; } 
+.mmt_goal .goal_write .ipt_wrap .guide { position: absolute; top: 8px; left: 16px; transition: all 0.3s; font-size: 18px; font-weight: 600; letter-spacing: -0.08em; color: rgba(255, 255, 255, 0.6); cursor:text } 
+.mmt_goal .goal_write .ipt_wrap .guide i:nth-of-type(2) { opacity: 1; transition: all 0.1s; } 
+.mmt_goal .goal_write .ipt_wrap .ipt_goal:focus { outline: none; } 
+.mmt_goal .goal_write .ipt_wrap .ipt_goal:focus ~ .guide,
+.mmt_goal .goal_write .ipt_wrap .ipt_goal:not(:placeholder-shown) ~ .guide { top: -35px; left: 8px; color: rgba(255, 255, 255, 1); } 
+.mmt_goal .goal_write .ipt_wrap .ipt_goal:focus ~ .guide > i:nth-of-type(2),
+.mmt_goal .goal_write .ipt_wrap .ipt_goal:not(:placeholder-shown) ~ .guide > i:nth-of-type(2) { opacity: 0; } 
+
+.mmt_goal .goal_write .btn_save_goal { min-width: 48px; border: 1px solid rgba(255, 255, 255, 0.5); background-color: rgba(255, 255, 255, 0.2); border-radius: 8px; font-size: 18px; font-weight: 600; color: #fff; } 
+.mmt_goal .goal_write .btn_save_goal:hover { background-color: #000; border-color: #000; } 
+.mmt_goal .goal_write .btn_save_goal .txt { font-size: 0; text-indent: -9999px; position: absolute; } 
+
+/* 목표 목록 */
+.mmt_goal .goal_recent { margin-top: 15px; } 
+.mmt_goal .goal_recent ul { border-radius: 8px; backdrop-filter: blur(5px) brightness(80%); } 
+.mmt_goal .goal_recent ul li { display: flex; align-items: center; padding: 0px 2px; } 
+.mmt_goal .goal_recent ul li .chk_wrap { flex: 0 0 0; display: inline-flex; align-items: center; } 
+.mmt_goal .goal_recent ul li .chk_wrap input[type='checkbox'] { display: none; } 
+/* .mmt_goal .goal_recent ul li .chk_wrap input[type='checkbox']:checked ~ label { background-color: dodgerblue; } */
+.mmt_goal .goal_recent ul li .chk_wrap label { position: relative; display: inline-block; border-radius: 10px; background-color: transparent; margin-right: 5px; cursor: pointer; } 
+.mmt_goal .goal_recent ul li .chk_wrap label:hover { background-color: #000; } 
+.mmt_goal .goal_recent ul li .chk_wrap label::before { content: '\f111'; display: inline-flex; align-items: center; justify-content: center; font-size: 18px; text-align: center; width: 30px; height: 30px; font-family: 'Font Awesome 6 Free'; color: rgba(255, 255, 255, 0.5); } 
+.mmt_goal .goal_recent ul li .chk_wrap input[type='checkbox']:checked ~ label::before { content: '\f00c'; font-weight: 900; color: #00FF49; font-size: 24px; } 
+.mmt_goal .goal_recent ul li .chk_wrap label .txt { width: 0; height: 0; position: absolute; font-size: 0; line-height: 0; text-indent: -9999px; } 
+
+.mmt_goal .goal_recent ul li .goal_title { flex: 0; flex-basis: auto; font-size: 18px; font-weight: 600; letter-spacing: -0.07em; color: #fff; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; margin-right: 5px; } 
+/* .mmt_goal .goal_recent ul li.isDone .goal_title { text-decoration: line-through; color: rgba(255, 255, 255, 0.5); } */
+.mmt_goal .goal_recent ul li.isDone .goal_title { position: relative; color: rgba(255, 255, 255, 0.5); } 
+.mmt_goal .goal_recent ul li.isDone .goal_title:after { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; transform: translateY(-50%); background-color: rgba(0, 255, 73,0.5); border-radius: 10px; } 
+
+.mmt_goal .goal_recent ul li .del_btn { flex: 0 0 0; width: 30px; font-size: 18px; border: none; padding: 4px 4px; border-radius: 10px; background-color: transparent; color: rgba(255, 255, 255, 0.5); } 
+.mmt_goal .goal_recent ul li .del_btn:hover { background-color: #000; } 
+
+
+
+
+
+
+
+/* 백드롭 ===================================================== */ 
+.backdrop_screen { display: none; 
+ justify-content: center; align-items: center; position: absolute; z-index: 999; width: 100%; height: 100%; color: #fff; backdrop-filter: blur(10px) brightness(80%);
+ opacity: 0; /* 처음부터 안보이게 시작 */
+ transition: opacity 1.5s ease; } 
+/* .backdrop_screen.on { display: flex; opacity: 1; } */
+
+
+
+/* --------------------------------- */
+/* 이름 작성 */
+.name_write { max-width: 600px; position: absolute; bottom: -100%; height: 100%; display: flex; flex-direction: column; justify-content: center; transition: all 0.7s ease; } 
+/* .name_write.on { bottom: 0%; } */
+.name_write .emoji { font-size: 5rem; text-align: center; line-height: 1; margin-bottom: 15px; } 
+.name_write .title { font-size: 1.6rem; color: #fff; line-height: 1.4; margin-bottom: 15px; text-align: center; font-weight: normal; font-family: "Pretendard", sans-serif; font-weight: 200; } 
+.name_write .title span:nth-of-type(1) { font-size: 2.4rem; font-weight: 600; } 
+.name_write .title span:nth-of-type(2) { opacity: 0.3; } 
+.name_write .input_box { width: 80%; margin: 0 auto; } 
+.name_write .input_box input { width: 100%; border: none; border-bottom: 4px solid #fff; background-color: transparent; text-align: center; color: #00FF49; font-weight: bold; font-size: 2rem; line-height: 1; padding: 0; padding-bottom: 4px; } 
+.name_write .input_box input:focus { outline: none; } 
+.name_write .bottom_button { text-align: center; margin-top: 40px; } 
+.name_write .bottom_button button { padding: 6px 15px; min-width: 180px; font-size: 2rem; border-radius: 500px; border: 1px solid rgba(255, 255, 255, 0.2); font-family: "Pretendard", sans-serif; font-weight: 300; background-color: transparent; color: #fff; transition: all 0.3s; } 
+.name_write .bottom_button button:hover { background-color: #fff; color: #000; } 
