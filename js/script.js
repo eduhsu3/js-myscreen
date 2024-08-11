@@ -55,7 +55,8 @@ function updateClock() {
     const year = now.getFullYear();
     const month = now.getMonth() + 1;
     const date = now.getDate();
-    const day = ['월', '화', '수', '목', '금', '토', '일'][now.getDay() - 1];
+    const day = ['일', '월', '화', '수', '목', '금', '토'][now.getDay()];
+
     const hours = now.getHours() % 12 || 12;
 
     const minutes = now.getMinutes();
